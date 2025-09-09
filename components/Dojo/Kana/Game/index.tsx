@@ -1,14 +1,16 @@
 'use client';
 import clsx from 'clsx';
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import Return from '@/components/reusable/Game/ReturnFromGame';
-import Pick from './Pick';
-import ReversePick from './ReversePick';
-import Input from './Input';
-import ReverseInput from './ReverseInput';
 import useKanaKanjiStore from '@/store/useKanaKanjiStore';
 import useStatsStore from '@/store/useStatsStore';
-import Stats from '@/components/reusable/Game/Stats';
+
+// Dynamic imports for better performance
+const Pick = lazy(() => import('./Pick'));
+const ReversePick = lazy(() => import('./ReversePick'));
+const Input = lazy(() => import('./Input'));
+const ReverseInput = lazy(() => import('./ReverseInput'));
+const Stats = lazy(() => import('@/components/reusable/Game/Stats'));
 
 const Game = () => {
   const showStats = useStatsStore(state => state.showStats);
@@ -19,7 +21,7 @@ const Game = () => {
 
   useEffect(() => {
     resetStats();
-  }, []);
+  }, [resetStats]);
 
   return (
     <div
@@ -29,17 +31,21 @@ const Game = () => {
         // "bg-[url('/wallpapers/kanaDojoWallpaper.png')] bg-cover bg-center backdrop-blur-lg"
       )}
     >
-      {showStats && <Stats />}
+      <Suspense fallback={<div className="animate-pulse w-full h-20 bg-gray-200 rounded" />}>
+        {showStats && <Stats />}
+      </Suspense>
       <Return isHidden={showStats} href='/kana' />
-      {gameMode.toLowerCase() === 'pick' ? (
-        <Pick isHidden={showStats} />
-      ) : gameMode.toLowerCase() === 'reverse-pick' ? (
-        <ReversePick isHidden={showStats} />
-      ) : gameMode.toLowerCase() === 'input' ? (
-        <Input isHidden={showStats} />
-      ) : gameMode.toLowerCase() === 'reverse-input' ? (
-        <ReverseInput isHidden={showStats} />
-      ) : null}
+      <Suspense fallback={<div className="animate-pulse w-full h-96 bg-gray-200 rounded" />}>
+        {gameMode.toLowerCase() === 'pick' ? (
+          <Pick isHidden={showStats} />
+        ) : gameMode.toLowerCase() === 'reverse-pick' ? (
+          <ReversePick isHidden={showStats} />
+        ) : gameMode.toLowerCase() === 'input' ? (
+          <Input isHidden={showStats} />
+        ) : gameMode.toLowerCase() === 'reverse-input' ? (
+          <ReverseInput isHidden={showStats} />
+        ) : null}
+      </Suspense>
     </div>
   );
 };

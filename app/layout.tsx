@@ -2,10 +2,14 @@ import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import ClientLayout from './ClientLayout';
 import './globals.css';
-import '@fortawesome/fontawesome-svg-core/styles.css';
 import GoogleAnalytics from '@/components/analytics/GoogleAnalytics';
 import MSClarity from '@/components/analytics/MSClarity';
 import { Metadata } from 'next';
+import { config } from '@fortawesome/fontawesome-svg-core';
+
+// Tell Font Awesome to skip adding the CSS automatically 
+// since we're adding it manually in globals.css
+config.autoAddCss = false;
 
 const googleVerificationToken = process.env.GOOGLE_VERIFICATION_TOKEN || '';
 const msVerificationToken = process.env.MS_VERIFICATION_TOKEN || '';

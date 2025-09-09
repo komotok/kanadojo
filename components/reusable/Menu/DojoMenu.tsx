@@ -1,16 +1,18 @@
 'use client';
 import clsx from 'clsx';
 import TopBar from '@/components/reusable/Menu/TopBar';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import Sidebar from '@/components/reusable/Menu/Sidebar';
 import Info from '@/components/reusable/Menu/Info';
 import GameModes from '@/components/reusable/Menu/GameModes';
-import KanaCards from '@/components/Dojo/Kana/KanaCards';
 import Banner from '@/components/reusable/Menu/Banner';
 import CollectionSelector from '@/components/reusable/Menu/CollectionSelector';
-import KanjiCards from '@/components/Dojo/Kanji';
 import { usePathname } from 'next/navigation';
-import VocabCards from '@/components/Dojo/Vocab';
+
+// Dynamic imports for card components
+const KanaCards = lazy(() => import('@/components/Dojo/Kana/KanaCards'));
+const KanjiCards = lazy(() => import('@/components/Dojo/Kanji'));
+const VocabCards = lazy(() => import('@/components/Dojo/Vocab'));
 
 const DojoMenu = () => {
   const pathname = usePathname();
@@ -45,13 +47,15 @@ const DojoMenu = () => {
         />
         {showGameModes && <GameModes />}
 
-        {pathname === '/kana' ? (
-          <KanaCards />
-        ) : pathname === '/kanji' ? (
-          <KanjiCards />
-        ) : pathname === '/vocabulary' ? (
-          <VocabCards />
-        ) : null}
+        <Suspense fallback={<div className="animate-pulse w-full h-96 bg-gray-200 rounded" />}>
+          {pathname === '/kana' ? (
+            <KanaCards />
+          ) : pathname === '/kanji' ? (
+            <KanjiCards />
+          ) : pathname === '/vocabulary' ? (
+            <VocabCards />
+          ) : null}
+        </Suspense>
       </div>
     </div>
   );

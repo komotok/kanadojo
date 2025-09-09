@@ -29,22 +29,29 @@ import {
   Sawarabi_Mincho
 } from 'next/font/google';
 
+// Optimized font loading with preload and fallback
 const notoSansJP = Noto_Sans_JP({
   subsets: ['latin'],
   weight: ['400'],
-  display: 'swap'
+  display: 'swap',
+  preload: true,
+  fallback: ['system-ui', 'sans-serif']
 });
 
 const zenMaruGothic = Zen_Maru_Gothic({
   subsets: ['latin'],
   weight: ['400'],
-  display: 'swap'
+  display: 'swap',
+  preload: false, // Lazy load non-primary fonts
+  fallback: ['system-ui', 'sans-serif']
 });
 
 const rampartOne = Rampart_One({
   subsets: ['latin'],
   weight: ['400'],
-  display: 'swap'
+  display: 'swap',
+  preload: false,
+  fallback: ['system-ui', 'sans-serif']
 });
 
 const zenKurenaido = Zen_Kurenaido({
