@@ -47,7 +47,7 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      {/* It's recommended to remove the <head> tag here, as Next.js 13+ with the App Router manages it via the metadata object */}
+      
       <body>
         {isAnalyticsEnabled && (
           <>
