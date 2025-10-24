@@ -7,11 +7,11 @@
 
 **An aesthetic, minimalist, and highly customizable platform for mastering Japanese**
 
-[![Live Demo](https://img.shields.io/badge/demo-kanadojo.com-blue?style=for-the-badge)](https://kanadojo.com)
-[![License](https://img.shields.io/badge/license-AGPL--v3-blue)](LICENSE.md)
-[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
-[![React](https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+![Live Demo](https://img.shields.io/badge/Demo-kanadojo.com-50b1e9?style=flat)
+![License](https://img.shields.io/badge/License-AGPL--v3-50b1e9?style=flat&logo=gnu&logoColor=white)
+![Next.js](https://img.shields.io/badge/Next.js-15-50b1e9?style=flat&logo=nextdotjs&logoColor=white)
+![React](https://img.shields.io/badge/React-19-50b1e9?style=flat&logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-50b1e9?style=flat&logo=typescript&logoColor=white)
 
 </div>
 
@@ -346,19 +346,18 @@ This project is licensed under the AGPL 3.0 License - see the [LICENSE.md](LICEN
 KanaDojo is available in multiple languages thanks to community contributions:
 
 - English (default)
-- [Español](docs/translations/README.es.md)
-- [Français](docs/translations/README.fr.md) in progress
-- [Deutsch](docs/translations/README.de.md)
-- [Português](docs/translations/README.pt-br.md)
-- [中文（简体）](docs/translations/README.zh-CN.md)
-- [中文（繁體）](docs/translations/README.zh-tw.md)
-- [हिन्दी](docs/translations/README.hin.md)
+- [Español](README.es.md)
+- [Français](README.fr.md) in progress
+- [Deutsch](README.de.md)
+- [Português](README.pt-br.md)
+- [中文](README.zh.md) in progress
+- [हिन्दी](README.hin.md)
 
 ## 📞 Contact & Links
 
 - **Website**: [kanadojo.com](https://kanadojo.com)
 - **Repository**: [github.com/lingdojo/kanadojo](https://github.com/lingdojo/kanadojo)
-- **Email**: lingdojo.dev@gmail.com
+- **Email**: reservecrate@gmail.com
 
 ---
 
